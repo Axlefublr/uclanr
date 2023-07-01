@@ -12,8 +12,10 @@ use rand::Rng;
 fn main() {
 	let file = get_json_path();
 	let json = read(file).unwrap();
-	let word = get_random_word(json);
-	print!("{}", word);
+	let amount = get_amount();
+	for _ in 0..amount {
+		println!("{}", get_random_word(&json));
+	}
 }
 
 fn get_json_path() -> PathBuf {
@@ -36,7 +38,7 @@ fn read<P: AsRef<Path>>(path: P) -> Result<JsonValue, Box<dyn Error>> {
 	Ok(json)
 }
 
-fn get_random_word(json: JsonValue) -> String {
+fn get_random_word(json: &JsonValue) -> String {
 	let mut rng = rand::thread_rng();
 	let random_number = rng.gen_range(0..json.as_array().unwrap().len());
 	json[random_number].as_str().unwrap().to_string()
