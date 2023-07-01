@@ -32,3 +32,10 @@ fn read<P: AsRef<Path>>(path: P) -> Result<JsonValue, Box<dyn Error>> {
 	let json = serde_json::from_reader(reader)?;
 	Ok(json)
 }
+
+fn get_random_word(json: JsonValue) -> String {
+	let mut rng = rand::thread_rng();
+	let random_number = rng.gen_range(0..json.as_array().unwrap().len());
+	json[random_number].as_str().unwrap().to_string()
+}
+
