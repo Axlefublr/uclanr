@@ -1,16 +1,15 @@
-use serde_json;
+use rand::Rng;
 use serde_json::Value as JsonValue;
 use std::env;
 use std::error::Error;
 use std::fs::File;
+use std::io;
 use std::io::BufReader;
 use std::path::Path;
 use std::path::PathBuf;
-use rand;
-use rand::Rng;
 
 fn main() {
-	let file = get_json_path();
+	let file = get_json_path().unwrap();
 	let json = read(file).unwrap();
 	let amount = get_amount();
 	for _ in 0..amount {
@@ -18,17 +17,17 @@ fn main() {
 	}
 }
 
-fn get_json_path() -> PathBuf {
-	env::current_exe()
-		.unwrap()
+fn get_json_path() -> Result<PathBuf, io::Error> {
+	let curr_exe = env::current_exe()?;
+	let project_dir = curr_exe.parent()
+		.expect("release / debug")
 		.parent()
-		.unwrap()
+		.expect("target")
 		.parent()
-		.unwrap()
-		.parent()
-		.unwrap()
-		.join("data")
-		.join("words.json")
+		.expect("uclanr");
+	let json_file = project_dir.join("data")
+		.join("words.json");
+	Ok(json_file)
 }
 
 fn read<P: AsRef<Path>>(path: P) -> Result<JsonValue, Box<dyn Error>> {
@@ -46,16 +45,19 @@ fn get_random_word(json: &JsonValue) -> String {
 
 fn get_amount() -> u32 {
 	let mut args = env::args();
-	if let None = args.next() { // if the first argument isn't the executable, somehow
+	if args.next().is_none() {
+		// if the first argument isn't the executable, somehow
 		return 1;
 	};
-	let amount = match args.next() { // if the second (meaning first) argument wasn't passed by the user
+	let amount = match args.next() {
+		// if the second (meaning first) argument wasn't passed by the user
 		Some(v) => v,
-		None => return 1
+		None => return 1,
 	};
-	let amount: u32 = match amount.trim().parse() { // if it's not a proper number (the user is supposed to enter a number of random words to print)
+	let amount: u32 = match amount.trim().parse() {
+		// if it's not a proper number (the user is supposed to enter a number of random words to print)
 		Ok(v) => v,
-		Err(_) => return 1
+		Err(_) => return 1,
 	};
 	amount
 }
