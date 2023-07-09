@@ -1,4 +1,4 @@
-﻿pub const WORDS: [&str; 7165] = [
+﻿pub const WORDS: &[&str] = &[
 	"nature",
 	"orders",
 	"availability",
