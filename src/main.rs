@@ -44,20 +44,8 @@ fn get_random_word(json: &JsonValue) -> String {
 }
 
 fn get_amount() -> u32 {
-	let mut args = env::args();
-	if args.next().is_none() {
-		// if the first argument isn't the executable, somehow
-		return 1;
-	};
-	let amount = match args.next() {
-		// if the second (meaning first) argument wasn't passed by the user
-		Some(v) => v,
-		None => return 1,
-	};
-	let amount: u32 = match amount.trim().parse() {
-		// if it's not a proper number (the user is supposed to enter a number of random words to print)
-		Ok(v) => v,
-		Err(_) => return 1,
-	};
-	amount
+	env::args()
+		.nth(1)
+		.map(|amount| amount.trim().parse().unwrap_or(1))
+		.unwrap_or(1)
 }
