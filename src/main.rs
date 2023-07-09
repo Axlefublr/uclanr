@@ -1,16 +1,18 @@
 use rand::seq::SliceRandom;
 use std::env;
 
-mod words;
-
 fn main() {
 	let amount = get_amount();
-	let words = get_random_words(amount);
+	let words: Vec<&str> = include_str!("words.txt")
+		.trim()
+		.split('\n')
+		.collect();
+	let words = get_random_words(words, amount);
 	println!("{}", words.join(" "));
 }
 
-fn get_random_words(amount: usize) -> Vec<&'static str> {
-	words::WORDS
+fn get_random_words(words: Vec<&str>, amount: usize) -> Vec<&str> {
+	words
 		.choose_multiple(&mut rand::thread_rng(), amount)
 		.copied()
 		.collect()
