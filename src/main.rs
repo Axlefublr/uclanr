@@ -3,10 +3,8 @@ use std::env;
 
 fn main() {
 	let amount = get_amount();
-	let words: Vec<&str> = include_str!("words.txt")
-		.trim()
-		.split('\n')
-		.collect();
+	let words: Vec<&str> = serde_json::from_str(include_str!("words.json"))
+		.expect("correct json file structure (array)");
 	let words = get_random_words(words, amount);
 	println!("{}", words.join(" "));
 }
