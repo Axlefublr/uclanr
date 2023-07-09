@@ -17,8 +17,6 @@ fn get_random_word() -> String {
 }
 
 fn get_amount() -> u32 {
-	env::args()
-		.nth(1)
-		.map(|amount| amount.trim().parse().unwrap_or(1))
-		.unwrap_or(1)
+	let Some(amount) = env::args().nth(1) else { return 1 };
+	amount.trim().parse().unwrap_or(1)
 }
