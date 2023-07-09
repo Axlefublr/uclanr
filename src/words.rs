@@ -1,4 +1,4 @@
-[
+﻿pub const WORDS: [&str; 7165] = [
 	"nature",
 	"orders",
 	"availability",
@@ -7164,4 +7164,4 @@
 	"mediawiki",
 	"configurations",
 	"poison"
-]
+];
