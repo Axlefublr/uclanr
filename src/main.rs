@@ -1,10 +1,15 @@
 use rand::seq::SliceRandom;
 use std::env;
+use std::io::BufRead;
+use std::io;
 
 fn main() {
 	let amount = get_amount();
-	let words: Vec<&str> = serde_json::from_str(include_str!("words.json"))
-		.expect("correct json file structure (array)");
+	let bytes = include_bytes!("words.txt");
+	let words: Result<Vec<String>, io::Error> = bytes
+		.lines()
+		.collect();
+	let words = words.expect("file parsed correctly");
 	let words = get_random_words(words, amount);
 	println!("{}", words.join(" "));
 }
