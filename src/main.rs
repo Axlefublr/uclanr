@@ -1,23 +1,22 @@
 use rand::seq::SliceRandom;
 use std::env;
 use std::io::BufRead;
-use std::io;
 
 fn main() {
 	let amount = get_amount();
 	let bytes = include_bytes!("words.txt");
-	let words: Result<Vec<String>, io::Error> = bytes
+	let words: Vec<String> = bytes
 		.lines()
-		.collect();
-	let words = words.expect("file parsed correctly");
-	let words = get_random_words(words, amount);
+		.collect::<Result<_, _>>()
+		.expect("file parsed correctly");
+	let words = get_random_words(&words, amount);
 	println!("{}", words.join(" "));
 }
 
-fn get_random_words(words: Vec<&str>, amount: usize) -> Vec<&str> {
+fn get_random_words(words: &[String], amount: usize) -> Vec<String> {
 	words
 		.choose_multiple(&mut rand::thread_rng(), amount)
-		.copied()
+		.cloned()
 		.collect()
 }
 
