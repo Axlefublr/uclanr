@@ -28,13 +28,9 @@ And in the end, we have 7165 possible words. Hyperspecific, I know.
 
 I haven't figured out how to publish packages yet, and idk how github releases work; so far I have this barebones solution:
 
-1. Have git and rust installed
+Have git and rust installed
+
 ```
-git clone https://github.com/Axlefublr/uclanr.git
-cd uclanr
-cargo build --release
-cp ./target/release/uclanr ~/.cargo/bin
-cd ..
-rm -fr ./uclanr
+cargo install --git https://github.com/Axlefublr/uclanr.git
 uclanr 5
 ```
