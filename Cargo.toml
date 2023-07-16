@@ -1,5 +1,6 @@
 [package]
 name = "uclanr"
+about = "A cli app which generates random words"
 version = "0.1.0"
 edition = "2021"
 
@@ -7,3 +8,4 @@ edition = "2021"
 
 [dependencies]
 rand = "0.8.5"
+clap = {version="4.3.12", features = ["derive"]}
