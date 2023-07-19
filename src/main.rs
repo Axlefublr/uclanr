@@ -5,8 +5,7 @@ use clap::Parser;
 #[derive(Parser, Debug)]
 #[command(author, about, long_about = None)]
 struct Args {
-	#[arg(short, long, default_value_t = 1)]
-	amount: usize,
+	amount: Option<usize>,
 	#[arg(short, long, default_value_t = String::from(" "))]
 	joiner: String
 }
@@ -18,7 +17,7 @@ fn main() {
 		.lines()
 		.collect::<Result<_, _>>()
 		.expect("file parsed correctly");
-	let words = get_random_words(&words, args.amount);
+	let words = get_random_words(&words, args.amount.unwrap_or(1));
 	println!("{}", words.join(&args.joiner));
 }
 
