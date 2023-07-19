@@ -1,16 +1,25 @@
 use rand::seq::SliceRandom;
-use std::env;
 use std::io::BufRead;
+use clap::Parser;
+
+#[derive(Parser, Debug)]
+#[command(author, about, long_about = None)]
+struct Args {
+	#[arg(short, long, default_value_t = 1)]
+	amount: usize,
+	#[arg(short, long, default_value_t = String::from(" "))]
+	joiner: String
+}
 
 fn main() {
-	let amount = get_amount();
+	let args = Args::parse();
 	let bytes = include_bytes!("words.txt");
 	let words: Vec<String> = bytes
 		.lines()
 		.collect::<Result<_, _>>()
 		.expect("file parsed correctly");
-	let words = get_random_words(&words, amount);
-	println!("{}", words.join(" "));
+	let words = get_random_words(&words, args.amount);
+	println!("{}", words.join(&args.joiner));
 }
 
 fn get_random_words(words: &[String], amount: usize) -> Vec<String> {
@@ -18,9 +27,4 @@ fn get_random_words(words: &[String], amount: usize) -> Vec<String> {
 		.choose_multiple(&mut rand::thread_rng(), amount)
 		.cloned()
 		.collect()
-}
-
-fn get_amount() -> usize {
-	let Some(amount) = env::args().nth(1) else { return 1 };
-	amount.trim().parse().unwrap_or(1)
 }
