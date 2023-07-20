@@ -2,16 +2,10 @@ use rand::seq::SliceRandom;
 use std::io::BufRead;
 use clap::Parser;
 
-#[derive(Parser, Debug)]
-#[command(author, about, long_about = None)]
-struct Args {
-	amount: Option<usize>,
-	#[arg(short, long, default_value_t = String::from(" "))]
-	joiner: String
-}
+mod args;
 
 fn main() {
-	let args = Args::parse();
+	let args = args::Args::parse();
 	let bytes = include_bytes!("words.txt");
 	let words: Vec<String> = bytes
 		.lines()
