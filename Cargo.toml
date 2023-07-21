@@ -1,7 +1,12 @@
 [package]
-authors = ["Axlefublr", "TheSast"]
 name = "uclanr"
 version = "1.0.0"
+authors = ["Axlefublr", "TheSast"]
+license = "MIT"
+description = "A word generator that specializes in useful words"
+readme = "README.md"
+homepage = "https://github.com/Axlefublr/uclanr"
+repository = "https://github.com/Axlefublr/uclanr"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
