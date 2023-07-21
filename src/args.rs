@@ -3,16 +3,23 @@ use crate::Case;
 
 #[derive(Parser, Debug)]
 #[command(author, about, long_about = None)]
+#[command(next_line_help = true)]
 pub struct Args {
+	/// The string that joines the random words, if there are more than 1
 	#[arg(short, long, default_value_t = String::from(" "))]
 	joiner: String,
+	/// Uppercase every word
 	#[arg(short, long)]
 	pub caps: bool,
+	/// Titlecase every word
 	#[arg(short, long)]
 	pub title: bool,
+	/// Disable interpreting \n as a newline and \t as a tab
 	#[arg(short, long, default_value_t = false)]
 	raw: bool,
-	pub amount: Option<usize>,
+	/// Amount of random words to print
+	#[arg(default_value_t = 1)]
+	pub amount: usize,
 }
 
 impl Args {

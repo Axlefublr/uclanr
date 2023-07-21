@@ -11,7 +11,7 @@ fn main() {
 		.lines()
 		.collect::<Result<_, _>>()
 		.expect("file parsed correctly");
-	let mut picked_words = get_random_words(&words, args.amount.unwrap_or(1));
+	let mut picked_words = get_random_words(&words, args.amount);
 	alter_case(&mut picked_words, args.get_case());
 	println!("{}", picked_words.join(&args.joiner()));
 }
