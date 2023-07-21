@@ -1,6 +1,6 @@
 # Uclanr
 
-Your mediocre brainstorming helper
+Your hyperspecific brainstorming-focused word generator.
 
 ## Why does this exist?
 
@@ -16,13 +16,26 @@ With those, I now can generate brainstorming material at will!
 
 It prints a random words to stdout. Very simple.
 
-If you specify a number after the command (`uclanr 5`), it will print that many random words, separated by spaces
+If you specify a number after the command (`uclanr 5`), it will print that many random words, separated by spaces.
 
 The words this program uses are ranked by popularity: from 1001st most common word to the 10000th.
 
 From there, I removed all words that are 4 letters long and below, leaving us with words that are at least 5 letters long.
 
 And in the end, we have 7165 possible words. Hyperspecific, I know.
+
+## Features
+
+Run `uclanr --help` to see the help menu.
+
+By default, the random words are joined by a space.
+You can change that using `--joiner` or `-j`.
+It doesn't necessarily have to be a single character.
+
+If you specify `\n` in `--join`, it's treated as a newline character; `\t` is a tab character.
+Use `--raw` or `-r` to disable this functionality.
+
+`--caps` or `-c` will CAPITALIZE every word. `--title` or `-t` will Titlecase every word.
 
 ## How do I install this?
 
