@@ -13,7 +13,7 @@ fn main() {
 		.expect("file parsed correctly");
 	let mut picked_words = get_random_words(&words, args.amount.unwrap_or(1));
 	alter_case(&mut picked_words, args.get_case());
-	println!("{}", picked_words.join(&args.joiner));
+	println!("{}", picked_words.join(&args.joiner()));
 }
 
 fn get_random_words(words: &[String], amount: usize) -> Vec<String> {
