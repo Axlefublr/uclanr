@@ -5,6 +5,7 @@ authors = ["Axlefublr", "TheSast"]
 license = "MIT"
 description = "A word generator that specializes in useful words"
 readme = "README.md"
+documentation = "https://docs.rs/uclanr"
 homepage = "https://github.com/Axlefublr/uclanr"
 repository = "https://github.com/Axlefublr/uclanr"
 edition = "2021"
