@@ -47,3 +47,7 @@ Have git and rust installed
 cargo install --git https://github.com/Axlefublr/uclanr.git
 uclanr 5
 ```
+
+## Contribution
+
+`git pull` the dev branch before any changes, please
