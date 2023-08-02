@@ -51,7 +51,7 @@ cargo install --git https://github.com/Axlefublr/uclanr.git
 ## Usage
 
 ```sh
-$ uclanr 5
+$ uclanr --help
 A word generator that specializes in useful words
 
 Usage: uclanr.exe [OPTIONS] [AMOUNT]
