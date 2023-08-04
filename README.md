@@ -44,13 +44,13 @@ I haven't figured out how to publish packages yet, and idk how github releases w
 
 Have git and rust installed
 
-```sh
+```
 cargo install --git https://github.com/Axlefublr/uclanr.git
 ```
 
 ## Usage
 
-```sh
+```
 $ uclanr --help
 A word generator that specializes in useful words
 
