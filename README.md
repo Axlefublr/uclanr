@@ -32,10 +32,11 @@ By default, the random words are joined by a space.
 You can change that using `--joiner` or `-j`.
 It doesn't necessarily have to be a single character.
 
-If you specify `\n` in `--join`, it's treated as a newline character; `\t` is a tab character.
+If you specify `\n` in `--joiner`, it's treated as a newline character; `\t` is a tab character.
 Use `--raw` or `-r` to disable this functionality.
 
-`--caps` or `-c` will CAPITALIZE every word. `--title` or `-t` will Titlecase every word.
+Use `--case` or `-c` to specify the case of the words. Supported values are `caps` for Capitalized words, `title` for Title case words and `lower` for lower case letters which is a default.
+
 
 ## How do I install this?
 
@@ -45,7 +46,29 @@ Have git and rust installed
 
 ```
 cargo install --git https://github.com/Axlefublr/uclanr.git
-uclanr 5
+```
+
+## Usage
+
+```
+$ uclanr --help
+A word generator that specializes in useful words
+
+Usage: uclanr.exe [OPTIONS] [AMOUNT]
+
+Arguments:
+  [AMOUNT]
+          Amount of random words to print [default: 1]
+
+Options:
+  -j, --joiner <JOINER>
+          The string that joines the random words, if there are more than 1 [default: " "]
+  -c, --case <CASE>
+          Sets the case of every word [default: lower] [possible values: caps, title, lower]
+  -r, --raw
+          Disable interpreting \n as a newline and \t as a tab
+  -h, --help
+          Print help
 ```
 
 ## Contribution
