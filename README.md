@@ -40,12 +40,8 @@ Use `--case` or `-c` to specify the case of the words. Supported values are `cap
 
 ## How do I install this?
 
-I haven't figured out how to publish packages yet, and idk how github releases work; so far I have this barebones solution:
-
-Have git and rust installed
-
 ```
-cargo install --git https://github.com/Axlefublr/uclanr.git
+cargo install uclanr
 ```
 
 ## Usage
