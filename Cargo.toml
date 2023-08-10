@@ -1,7 +1,7 @@
 [package]
 name = "uclanr"
-version = "1.0.0"
-authors = ["Axlefublr", "TheSast"]
+version = "2.0.0"
+authors = ["Axlefublr", "TheSast", "blood-rogue"]
 license = "MIT"
 description = "A word generator that specializes in useful words"
 readme = "README.md"
