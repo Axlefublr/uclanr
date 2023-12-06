@@ -38,12 +38,6 @@ Use `--raw` or `-r` to disable this functionality.
 Use `--case` or `-c` to specify the case of the words. Supported values are `caps` for Capitalized words, `title` for Title case words and `lower` for lower case letters which is a default.
 
 
-## How do I install this?
-
-```
-cargo install uclanr
-```
-
 ## Usage
 
 ```
@@ -67,6 +61,16 @@ Options:
           Print help
 ```
 
-## Contribution
+# Install
 
-`git pull` the dev branch before any changes, please
+```
+cargo install uclanr
+```
+
+`cargo-binstall` and `cargo-quickinstall` are also supported
+
+# Uninstall
+
+```
+cargo uninstall uclanr
+```
