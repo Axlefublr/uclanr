@@ -1,7 +1,7 @@
 use clap::{Parser, ValueEnum};
 
 #[derive(Parser)]
-#[command(author, about, next_line_help = true)]
+#[command(author, version, about)]
 pub struct Args {
     /// The string that joines the random words, if there are more than 1
     #[arg(short, long, default_value_t = String::from(" "))]

@@ -41,27 +41,24 @@ Use `--case` or `-c` to specify the case of the words. Supported values are `cap
 ## Usage
 
 ```
-$ uclanr --help
-A word generator that specializes in useful words
+A random word picker that gives you actually useful words.
 
-Usage: uclanr.exe [OPTIONS] [AMOUNT]
+Usage: uclanr [OPTIONS] [AMOUNT]
 
 Arguments:
-  [AMOUNT]
-          Amount of random words to print [default: 1]
+  [AMOUNT]  Amount of random words to print [default: 1]
 
 Options:
-  -j, --joiner <JOINER>
-          The string that joines the random words, if there are more than 1 [default: " "]
-  -c, --case <CASE>
-          Sets the case of every word [default: lower] [possible values: caps, title, lower]
-  -r, --raw
-          Disable interpreting \n as a newline and \t as a tab
-  -h, --help
-          Print help
+  -j, --joiner <JOINER>  The string that joines the random words, if there are
+                         more than 1 [default: " "]
+  -c, --case <CASE>      Sets the case of every word [default: lower] [possible
+                         values: caps, title, lower]
+  -r, --raw              Disable interpreting \n as a newline and \t as a tab
+  -h, --help             Print help
+  -V, --version          Print version
 ```
 
-# Install
+## Install
 
 ```
 cargo install uclanr
@@ -69,7 +66,7 @@ cargo install uclanr
 
 `cargo-binstall` and `cargo-quickinstall` are also supported
 
-# Uninstall
+## Uninstall
 
 ```
 cargo uninstall uclanr
