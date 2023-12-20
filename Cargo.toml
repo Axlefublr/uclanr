@@ -1,6 +1,6 @@
 [package]
 name = "uclanr"
-version = "2.0.1"
+version = "2.1.0"
 authors = ["Axlefublr", "TheSast", "blood-rogue"]
 license = "MIT"
 description = "A random word picker that gives you actually useful words."
